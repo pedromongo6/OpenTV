@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- file: res/xml/network_security_config.xml
+     IPTV panels are frequently plain HTTP and often use self-signed certs on
+     their own domains. Cleartext is permitted because the user chooses the host;
+     no credentials leave the device. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

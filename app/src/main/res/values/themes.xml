@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- file: res/values/themes.xml -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.OpenTv" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@android:color/background_dark</item>
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/brand_accent</item>
+        <item name="android:colorBackground">@color/bg_dark</item>
+        <!-- TV: focus must be visible from across a room -->
+        <item name="android:colorControlHighlight">@color/focus_highlight</item>
+    </style>
+
+    <style name="Theme.OpenTv.Player" parent="Theme.OpenTv">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

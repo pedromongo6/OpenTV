@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- file: res/layout/fragment_settings.xml -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Sources -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sources"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingBottom="6dp" />
+
+        <LinearLayout
+            android:id="@+id/sourcesRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:paddingVertical="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/add_source" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="›"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha="0.15"
+            android:background="?android:attr/textColorPrimary" />
+
+        <!-- Decoder -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/decoder"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingTop="18dp"
+            android:paddingBottom="6dp" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/decoderGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/decoderAuto"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/decoder_auto" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/decoderHw"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/decoder_hw" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/decoderSw"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/decoder_sw" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <!-- Buffer -->
+        <TextView
+            android:id="@+id/bufferLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buffer"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingTop="18dp"
+            android:paddingBottom="6dp" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/bufferSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="10000"
+            android:valueTo="120000"
+            android:stepSize="5000" />
+
+        <!-- Subtitle scale -->
+        <TextView
+            android:id="@+id/subtitleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitles"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingTop="18dp"
+            android:paddingBottom="6dp" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/subtitleSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="0.6"
+            android:valueTo="2.0"
+            android:stepSize="0.1" />
+
+        <!-- Aspect -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_aspect"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingTop="18dp"
+            android:paddingBottom="6dp" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/aspectGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/aspectFit"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/aspect_fit" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/aspectFill"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/aspect_fill" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/aspectZoom"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/aspect_zoom" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/aspectStretch"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/aspect_stretch" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <!-- Network -->
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/dohSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/dns_over_https" />
+
+        <!-- Parental -->
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/parentalSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/parental" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/changePin"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/change_pin" />
+
+        <!-- Maintenance -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clearEpg"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/clear_epg" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clearAll"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_all" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingTop="24dp" />
+
+        <TextView
+            android:id="@+id/aboutVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:alpha="0.7"
+            android:paddingBottom="24dp" />
+    </LinearLayout>
+</ScrollView>

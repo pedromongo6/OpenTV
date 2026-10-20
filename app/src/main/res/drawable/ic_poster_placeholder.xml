@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- file: res/drawable/ic_poster_placeholder.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="180dp"
+    android:viewportWidth="24"
+    android:viewportHeight="36">
+    <path
+        android:fillColor="#33FFFFFF"
+        android:pathData="M0,0h24v36H0z" />
+    <path
+        android:fillColor="#66FFFFFF"
+        android:pathData="M10,14l6,4l-6,4z" />
+</vector>

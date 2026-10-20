@@ -1,0 +1,61 @@
+// language: YAML, file: .github/workflows/build-apk.yml
+// *Builds a signed-with-debug-key, installable APK on GitHub's runners and*
+// *attaches it to the run as a downloadable artifact. No local toolchain needed.*
+
+name: Build APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          # No wrapper is committed, so let the action install the distribution.
+          gradle-version: '8.9'
+
+      - name: Generate Gradle wrapper
+        run: gradle wrapper --gradle-version 8.9
+
+      - name: Accept licenses and install platform
+        run: |
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          sdkmanager "platforms;android-34" "build-tools;34.0.0" > /dev/null
+
+      - name: Build debug APK
+        run: ./gradlew assembleDebug --no-daemon --stacktrace
+
+      - name: Rename artifact
+        run: |
+          mkdir -p out
+          cp app/build/outputs/apk/debug/app-debug.apk out/OpenTV-1.0.0-debug.apk
+          ls -lh out/
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenTV-APK
+          path: out/OpenTV-1.0.0-debug.apk
+          if-no-files-found: error
+          retention-days: 30

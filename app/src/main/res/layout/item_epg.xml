@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- file: res/layout/item_epg.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="4dp">
+
+    <TextView
+        android:id="@+id/epgTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:alpha="0.7" />
+
+    <TextView
+        android:id="@+id/epgTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <ProgressBar
+        android:id="@+id/epgProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="4dp"
+        android:max="100"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/epgDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:alpha="0.75"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:visibility="gone" />
+</LinearLayout>
